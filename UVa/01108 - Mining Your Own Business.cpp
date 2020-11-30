@@ -5,7 +5,8 @@
 
 using namespace std;
 
-vector< vector<int> > G, bcc;
+vector< vector<int> > G;
+vector< unordered_set<int> > bcc;
 vector<int> dfn, low;
 vector<bool> iscut;
 stack< pair<int, int> > S;
@@ -29,7 +30,6 @@ void dfs(int u, int par)
             if (low[v] >= dfn[u]) 
             {
                 iscut[u] = true;
-                vector<int> V;
                 unordered_set<int> US;
                 while(1)
                 {
@@ -37,8 +37,7 @@ void dfs(int u, int par)
                     US.emplace(cu), US.emplace(cv);
                     if (cu == u && cv == v) break;
                 }
-                for (auto it = US.begin(); it != US.end(); ++it) V.emplace_back(*it);
-                bcc.emplace_back(V);
+                bcc.emplace_back(US);
             }         
         }
         else if (dfn[v] < dfn[u] && v != par) low[u] = min(low[u], dfn[v]);
