@@ -37,7 +37,7 @@ int main()
         stack<char> starts, stacks;
         for (int i = in.size() - 1; i >= 0; --i) starts.emplace(in[i]);
 
-		cout << "[\n";
+	cout << "[\n";
         if (in.size() == target.size()) dfs(starts, "", stacks, "", 0);
 		cout << "]\n";
 	}
