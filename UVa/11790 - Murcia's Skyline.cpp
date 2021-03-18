@@ -20,22 +20,17 @@ int main()
 		vector<int> h(N), w(N);
 		vector<int> lis(N), lds(N);
 		int ans_lis = 0, ans_lds = 0;
-		for (int i = 0; i < N; ++i) lis[i] = lds[i] = w[i];
 
 		for (int i = 0; i < N; ++i) cin >> h[i];
-		for (int i = 0; i < N; ++i) cin >> w[i];		
+		for (int i = 0; i < N; ++i) cin >> w[i], lis[i] = lds[i] = w[i];
 
-		// find lis
+		// find lis and lds
 		for (int i = 0; i < N; ++i) for (int j = 0; j <= i; ++j)
 		{
 			if (h[i] > h[j]) lis[i] = max(lis[i], lis[j] + w[i]);
-			ans_lis = max(ans_lis, lis[i]);
-		}
-
-		// find lds
-		for (int i = 0; i < N; ++i) for (int j = 0; j <= i; ++j)
-		{
 			if (h[i] < h[j]) lds[i] = max(lds[i], lds[j] + w[i]);
+
+			ans_lis = max(ans_lis, lis[i]);
 			ans_lds = max(ans_lds, lds[i]);
 		}
 
