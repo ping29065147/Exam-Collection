@@ -8,8 +8,8 @@ static auto fast_io = []
 
 class Solution {
 public:
-    int searchInsert(vector<int>& nums, int target)
-    {        
-        return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+    int mySqrt(int x)
+    {
+        return sqrt(x);
     }
 };
