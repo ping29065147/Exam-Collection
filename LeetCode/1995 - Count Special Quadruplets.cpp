@@ -1,0 +1,25 @@
+static auto fast_io = []
+{
+	ios::sync_with_stdio(false);
+	cout.tie(nullptr);
+	cin.tie(nullptr);
+	return 0;
+}();
+
+class Solution {
+public:
+    int countQuadruplets(vector<int>& nums)
+    {
+        int cnt = 0;
+        int n = nums.size();
+        
+        for (int i = 0; i < n; ++i)
+            for (int j = i + 1; j < n; ++j)
+                for (int k = j + 1; k < n; ++k)
+                    for (int l = k + 1; l < n; ++l)
+                        if (nums[i] + nums[j] + nums[k] == nums[l]) 
+                            ++cnt;
+        
+        return cnt;
+    }
+};
