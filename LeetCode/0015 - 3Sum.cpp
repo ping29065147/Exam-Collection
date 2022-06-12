@@ -20,7 +20,7 @@ public:
             if (nums[k] > 0) break;
             if (k > 0 && nums[k] == nums[k - 1]) continue;
             
-            int target = 0 - nums[k];
+            int target = -nums[k];
             int i = k + 1, j = nums.size() - 1;
             
             while(i < j)
