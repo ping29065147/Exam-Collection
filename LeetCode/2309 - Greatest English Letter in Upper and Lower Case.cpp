@@ -1,0 +1,22 @@
+static auto fast_io = []
+{
+	ios::sync_with_stdio(false);
+	cout.tie(nullptr);
+	cin.tie(nullptr);
+	return 0;
+}();
+
+class Solution {
+public:
+    string greatestLetter(string s)
+    {
+        unordered_map<char, int> M;
+
+        for (auto& c : s) ++M[c];
+        for (char i = 'Z'; i >= 'A'; --i)
+            if (M[i] > 0 && M[i + 32] > 0)
+                return string(1, i);
+
+        return "";
+    }
+};
